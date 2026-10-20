@@ -1,0 +1,19 @@
+@baseUrl = http://localhost:3000
+
+### ① 单句数 token（15~40 秒）
+POST {{baseUrl}}/api/usage
+Content-Type: application/json
+
+{"prompt": "今天天气真好"}
+
+### ② 中英对照·只跑一组（快，先用它验证代码对不对）
+POST {{baseUrl}}/api/usage/compare
+Content-Type: application/json
+
+{"pairs": [{"zh": "今天天气真好，我想去公园散步", "en": "The weather is nice today, I want to walk in the park"}]}
+
+### ③ 中英对照·全三组（1.5~3 分钟，额度紧张时慎用）
+POST {{baseUrl}}/api/usage/compare
+Content-Type: application/json
+
+{}
